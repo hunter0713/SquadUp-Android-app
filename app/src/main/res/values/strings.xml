@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SquadUp</string>
+    <string name="action_settings">Settings</string>
+    <string name="squadup_home">SquadUp Homepage</string>
+    <string name="button">Toast here</string>
+    <string name="button3">Button3</string>
+    <string name="button2">button2</string>
+</resources>
