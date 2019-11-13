@@ -7,6 +7,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import android.content.Intent
+import android.provider.AlarmClock.EXTRA_MESSAGE
+import android.widget.EditText
+
+
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -43,5 +48,15 @@ class MainActivity : AppCompatActivity() {
     {
         val helloToast = Toast.makeText(this, "Hello SquadUp User!", Toast.LENGTH_LONG)
         helloToast.show()
+    }
+
+    fun goToTeams(view: View)
+    {
+        val editText = findViewById<EditText>(R.id.editText)
+        val message = editText.text.toString()
+        val intent = Intent(this, DisplayMessageActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, message)
+        }
+        startActivity(intent)
     }
 }
