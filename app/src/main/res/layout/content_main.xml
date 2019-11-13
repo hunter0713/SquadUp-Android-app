@@ -26,7 +26,7 @@
         app:layout_constraintVertical_bias="0.153" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/GotoTeamPageActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#102DC5"
