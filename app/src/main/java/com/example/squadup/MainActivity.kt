@@ -6,38 +6,50 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.Toast
 import android.content.Intent
 import android.provider.AlarmClock.EXTRA_MESSAGE
-import android.view.Display
+import android.widget.Button
 import android.widget.EditText
 
 
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+//import android.R
+//import com.package.name.R
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
+
+
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setSupportActionBar(toolbar)
 
         GotoTeamPageActivity.setOnClickListener()
         {
             val intent = Intent(this, TeamPage::class.java)
             startActivity(intent)
         }
-
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-
-
+        val btn = findViewById(R.id.button3) as Button
+        btn.setOnClickListener {
+            startActivity(Intent(this@MainActivity, TeamPage::class.java))
         }
     }
-
+     fun goToTeams(){
+         intent = Intent(this, TeamPage::class.java);
+        startActivity(intent);
+    }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -58,5 +70,15 @@ class MainActivity : AppCompatActivity() {
     {
         val helloToast = Toast.makeText(this, "Hello SquadUp User!", Toast.LENGTH_LONG)
         helloToast.show()
+    }
+
+    fun goToTeams(view: View)
+    {
+        val editText = findViewById<EditText>(R.id.editText)
+        val message = editText.text.toString()
+        //val intent = Intent(this, DisplayMessageActivity::class.java).apply {
+          //  putExtra(EXTRA_MESSAGE, message)
+
+        //startActivity(intent)
     }
 }
