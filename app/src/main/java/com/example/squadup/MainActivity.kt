@@ -24,9 +24,7 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
-
-
+import com.example.squadup.R.layout.activity_team_page
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,21 +33,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-        GotoTeamPageActivity.setOnClickListener()
-        {
+        GotoTeamPageActivity.setOnClickListener(){
             val intent = Intent(this, TeamPage::class.java)
             startActivity(intent)
         }
-        val btn = findViewById(R.id.button3) as Button
-        btn.setOnClickListener {
-            startActivity(Intent(this@MainActivity, TeamPage::class.java))
-        }
     }
-     fun goToTeams(){
-         intent = Intent(this, TeamPage::class.java);
-        startActivity(intent);
-    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)

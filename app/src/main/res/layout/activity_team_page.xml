@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TeamPage">
+    tools:context=".TeamPage"
+    android:background="@color/colorPrimary">
 
     <RadioButton
         android:id="@+id/radioButton4"
@@ -85,20 +86,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.002"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="184dp"
@@ -109,8 +96,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editText"
