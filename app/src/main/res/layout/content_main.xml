@@ -31,7 +31,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#102DC5"
-        android:onClick="goToTeams"
         android:text="@string/button2"
         android:textColor="#E90A1D"
         android:textSize="16sp"
