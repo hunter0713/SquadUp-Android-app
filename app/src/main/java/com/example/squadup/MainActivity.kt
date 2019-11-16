@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         GotoTeamPageActivity.setOnClickListener {
             var username = findViewById<EditText>(R.id.editText2)
             var password = findViewById<EditText>(R.id.editText3)
-            val type = "login";
             login(username.text.toString(), password.text.toString())
 
 
@@ -88,7 +87,6 @@ class MainActivity : AppCompatActivity() {
         var requestQueue: RequestQueue = Volley.newRequestQueue(this)
         requestQueue.add(request)
     }
-
 }
 
 
