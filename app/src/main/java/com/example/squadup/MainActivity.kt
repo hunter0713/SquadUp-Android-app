@@ -1,30 +1,23 @@
 package com.example.squadup
-
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
-import android.content.Intent
-import android.provider.AlarmClock.EXTRA_MESSAGE
-import android.widget.Button
 import android.widget.EditText
-
-
-
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.android.volley.Request
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.VolleyError
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
-//import android.R
-//import com.package.name.R
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import com.example.squadup.R.layout.activity_team_page
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -33,27 +26,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        GotoTeamPageActivity.setOnClickListener(){
-            val intent = Intent(this, TeamPage::class.java)
+        GotoTeamPageActivity.setOnClickListener {
+            var username = findViewById<EditText>(R.id.editText2)
+            var password = findViewById<EditText>(R.id.editText3)
+            login(username.text.toString(), password.text.toString())
+
+
+        }
+        clickToRegister.setOnClickListener{
+            val intent = Intent(this, registerPage::class.java)
             startActivity(intent)
         }
     }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+
 
     fun sayHello(view: View)
     {
@@ -61,13 +58,39 @@ class MainActivity : AppCompatActivity() {
         helloToast.show()
     }
 
-    fun goToTeams(view: View)
+    fun goToTeams()
     {
-        val editText = findViewById<EditText>(R.id.editText)
-        val message = editText.text.toString()
-        //val intent = Intent(this, DisplayMessageActivity::class.java).apply {
-          //  putExtra(EXTRA_MESSAGE, message)
+        val intent = Intent(this, TeamPage::class.java)
+        startActivity(intent)
+    }
+    //LOGIN FUNCTION FOR DATABASE STUFF
+    fun login(username: String, password: String){
+        val request = object: StringRequest(Request.Method.POST, "https://people.eecs.ku.edu/~h961c228/loginExistingBackend.php", object : Response.Listener<String> {
+            override fun onResponse(response: String) {
+                Toast.makeText(this@MainActivity, response, Toast.LENGTH_LONG).show()
+                if(response == "Success"){
+                    goToTeams();
+                }
+            }
+        }, Response.ErrorListener() {
+            fun onErrorResponse(error: VolleyError) { //function required for StringResponse
+                Log.d("error", error.toString())
+            }
+        }){
 
-        //startActivity(intent)
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String,String>()
+                params["username"]= username
+                params["password"]= password
+                return params
+            }
+        }
+
+
+
+        val requestQueue: RequestQueue = Volley.newRequestQueue(this)
+        requestQueue.add(request)
     }
 }
+
+

@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    android:background="@color/colorPrimary"
+    tools:context=".registerPage">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/registerPageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
@@ -26,52 +25,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.153" />
 
-    <Button
-        android:id="@+id/GotoTeamPageActivity"
+    <TextView
+        android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#102DC5"
-        android:text="@string/button2"
-        android:textColor="#E90A1D"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.521"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:background="#102DC5"
-        android:onClick="sayHello"
-        android:text="@string/button"
-        android:textColor="#E90A1D"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:background="#102DC5"
-        android:text="@string/button3"
-        android:textColor="#E90A1D"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:text="Register:"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/registerUsername"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/registerUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="800px"
@@ -85,7 +54,7 @@
         app:layout_constraintVertical_bias="0.414" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/registerPagePass1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="800px"
@@ -99,35 +68,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.542" />
 
-    <TextView
-        android:id="@+id/textView4"
+    <EditText
+        android:id="@+id/registerPagePass2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/clickToRegister"
-        android:layout_width="191dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="598dp"
-        android:layout_marginBottom="25dp"
-        android:textAlignment="center"
-        android:textSize="15dp"
-        android:textColor="#E90A1D"
-        android:text="Don't Have an Account Yet? Register Here!"
+        android:width="800px"
+        android:ems="10"
+        android:hint="Re-Enter Password"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.624" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="345dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="543dp"
+        android:text="Register"
+        android:background="#102DC5"
+        android:textColor="#E90A1D"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
