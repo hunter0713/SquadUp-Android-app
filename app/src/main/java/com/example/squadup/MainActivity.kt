@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+        clickToRegister.setOnClickListener{
+            val intent = Intent(this, registerPage::class.java)
+            startActivity(intent)
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -69,22 +73,22 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }, Response.ErrorListener() {
-            fun onErrorResponse(error: VolleyError) {
+            fun onErrorResponse(error: VolleyError) { //function required for StringResponse
                 Log.d("error", error.toString())
             }
         }){
 
             override fun getParams(): Map<String, String> {
-                val params = HashMap<String,String>();
-                params["username"]= username     //here
-                params["password"]= password  //here
+                val params = HashMap<String,String>()
+                params["username"]= username
+                params["password"]= password
                 return params
             }
-        };
+        }
 
 
 
-        var requestQueue: RequestQueue = Volley.newRequestQueue(this)
+        val requestQueue: RequestQueue = Volley.newRequestQueue(this)
         requestQueue.add(request)
     }
 }
