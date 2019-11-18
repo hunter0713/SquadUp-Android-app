@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".profileActivity">
+
+    <TextView
+        android:id="@+id/profileTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="94dp"
+        android:layout_marginBottom="596dp"
+        android:text="Welcome User!"
+        android:textColor="#BD043E"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/profileGoToTeamPage"
+        android:layout_width="141dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="586dp"
+        android:layout_marginEnd="236dp"
+        android:layout_marginBottom="73dp"
+        android:background="#102DC5"
+        android:text="Teams"
+        android:textColor="#E90A1D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/goToLeaderboard"
+        android:layout_width="145dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="586dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="72dp"
+        android:text="Leaderboards"
+        android:textColor="#E90A1D"
+        android:background="#102DC5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

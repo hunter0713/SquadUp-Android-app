@@ -1,5 +1,6 @@
 package com.example.squadup
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
@@ -29,7 +30,11 @@ class registerPage : AppCompatActivity() {
             }
         }
     }
-
+fun goToProfile(){
+    val intent = Intent(this, profileActivity::class.java)
+    intent.putExtra("username",findViewById<EditText>(R.id.registerUsername).text.toString())
+    startActivity(intent)
+}
     fun registerUser(username: String, password: String) {
         val request = object : StringRequest(
             Request.Method.POST,
@@ -37,9 +42,8 @@ class registerPage : AppCompatActivity() {
             object : Response.Listener<String> {
                 override fun onResponse(response: String) {
                     Toast.makeText(this@registerPage, response, Toast.LENGTH_LONG).show()
-                    if (response == "Success") {
-
-                        //go to profile
+                    if (response == "success") {
+                        goToProfile()
                     }
                 }
             },
