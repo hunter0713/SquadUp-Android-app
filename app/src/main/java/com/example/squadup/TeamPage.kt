@@ -1,12 +1,9 @@
 package com.example.squadup
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_team_page.*
-import kotlinx.android.synthetic.main.content_main.*
 
 class TeamPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +20,7 @@ class TeamPage : AppCompatActivity() {
         teamIntent.putExtra("Member3", member3)
         teamIntent.putExtra("Member4", member4)
         teamIntent.putExtra("Member5", member5)
-        startActivity(teamIntent)
+        //startActivity(teamIntent)
     }
     }
 
