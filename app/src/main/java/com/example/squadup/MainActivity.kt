@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-        GotoTeamPageActivity.setOnClickListener {
+        loginButton.setOnClickListener {
             var username = findViewById<EditText>(R.id.editText2)
             var password = findViewById<EditText>(R.id.editText3)
             login(username.text.toString(), password.text.toString())
@@ -58,9 +58,10 @@ class MainActivity : AppCompatActivity() {
         helloToast.show()
     }
 
-    fun goToTeams()
+    fun goToProfile(username: String)
     {
-        val intent = Intent(this, TeamPage::class.java)
+        val intent = Intent(this, profileActivity::class.java)
+        intent.putExtra("username",username);
         startActivity(intent)
     }
     //LOGIN FUNCTION FOR DATABASE STUFF
@@ -69,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(response: String) {
                 Toast.makeText(this@MainActivity, response, Toast.LENGTH_LONG).show()
                 if(response == "Success"){
-                    goToTeams();
+                    goToProfile(username);
                 }
             }
         }, Response.ErrorListener() {

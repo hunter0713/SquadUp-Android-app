@@ -12,8 +12,6 @@ class TeamPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_page)
-
-        //Puts team member names in an intent to pass to next activity
         val teamIntent = Intent(this@TeamPage, GamePage::class.java)
         val member1 = editText.getText().toString()
         val member2 = editText5.getText().toString()
@@ -25,14 +23,7 @@ class TeamPage : AppCompatActivity() {
         teamIntent.putExtra("Member3", member3)
         teamIntent.putExtra("Member4", member4)
         teamIntent.putExtra("Member5", member5)
-
-        //starts next activity on button press
-        val startButton = findViewById(R.id.startButton) as Button
-        startButton.setOnClickListener{
-            startActivity(teamIntent)
-        }
-
-
+        startActivity(teamIntent)
     }
     }
 
