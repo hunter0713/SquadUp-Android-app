@@ -23,7 +23,11 @@ class TeamPage : AppCompatActivity() {
         teamIntent.putExtra("Member3", member3)
         teamIntent.putExtra("Member4", member4)
         teamIntent.putExtra("Member5", member5)
-        startActivity(teamIntent)
+        //go to game activity if button is clicked
+        val startGamebtn = findViewById(R.id.startButton) as Button
+        startGamebtn.setOnClickListener{
+            startActivity(teamIntent)
+        }
     }
     }
 
