@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         loginButton.setOnClickListener {
-            var username = findViewById<EditText>(R.id.editText2)
-            var password = findViewById<EditText>(R.id.editText3)
+            var username = findViewById<EditText>(R.id.usernameLogin)
+            var password = findViewById<EditText>(R.id.password)
             login(username.text.toString(), password.text.toString())
 
 
