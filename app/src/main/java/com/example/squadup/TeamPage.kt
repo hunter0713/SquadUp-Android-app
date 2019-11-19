@@ -10,6 +10,9 @@ class TeamPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_page)
+        //go to game activity if button is clicked
+        val startGamebtn = findViewById(R.id.startButton) as Button
+        startGamebtn.setOnClickListener{
         val teamIntent = Intent(this@TeamPage, GamePage::class.java)
         val member1 = player1.text.toString()
         val member2 = player3.getText().toString()
@@ -21,9 +24,6 @@ class TeamPage : AppCompatActivity() {
         teamIntent.putExtra("Member3", member3)
         teamIntent.putExtra("Member4", member4)
         teamIntent.putExtra("Member5", member5)
-        //go to game activity if button is clicked
-        val startGamebtn = findViewById(R.id.startButton) as Button
-        startGamebtn.setOnClickListener{
             startActivity(teamIntent)
         }
     }

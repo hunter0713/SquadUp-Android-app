@@ -28,7 +28,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/Name"
+        android:hint="Player 4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/t2player3" />
 
@@ -40,7 +40,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/Name"
+        android:hint="Player 3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/t2player2" />
 
@@ -51,7 +51,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="textPersonName"
+        android:hint="Player 1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addPlayers1" />
 
@@ -63,7 +64,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/Name"
+        android:hint="Player 5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/t2player4" />
 
@@ -75,7 +76,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/Name"
+        android:hint="Player 1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addPlayers1" />
 
@@ -87,7 +88,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/Name"
+        android:hint="Player 3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/player2" />
 
@@ -99,7 +100,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/Name"
+        android:hint="Player 2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/player1" />
 
@@ -121,8 +122,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="@string/Name"
+        android:inputType="textPersonName"
+        android:hint="Player 5"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/player4" />
 
@@ -134,7 +136,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/Name"
+        android:hint="Player 4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/player3" />
 
@@ -147,6 +149,7 @@
         android:text="@string/AddPlayers"
         android:textColor="#D11919"
         android:textSize="18sp"
+        android:hint="Player 1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleBox" />
 
@@ -158,7 +161,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/Name"
+        android:hint="Player 2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/t2player1" />
 
