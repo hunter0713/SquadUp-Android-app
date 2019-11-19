@@ -17,6 +17,7 @@ class profileActivity : AppCompatActivity() {
         title.text = "Welcome, " + username + "!"
         profileGoToTeamPage.setOnClickListener{
             val intent = Intent(this, TeamPage::class.java)
+            intent.putExtra("username",username);
             startActivity(intent)
         }
     }

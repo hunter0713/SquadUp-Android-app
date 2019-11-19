@@ -14,9 +14,7 @@ class GamePage : AppCompatActivity() {
         val member3 = teamIntent.getStringExtra("Member3")
         val member4 = teamIntent.getStringExtra("Member4")
         val member5 = teamIntent.getStringExtra("Member5")
-
-
-
-
+        val x = findViewById<TextView>(R.id.textView5)
+        x.text = member1
     }
 }

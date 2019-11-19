@@ -32,7 +32,7 @@
         android:layout_marginEnd="236dp"
         android:layout_marginBottom="73dp"
         android:background="#102DC5"
-        android:text="Teams"
+        android:text="Create A Team"
         android:textColor="#E90A1D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

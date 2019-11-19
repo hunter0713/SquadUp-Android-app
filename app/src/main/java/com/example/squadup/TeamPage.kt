@@ -11,7 +11,7 @@ class TeamPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_page)
         val teamIntent = Intent(this@TeamPage, GamePage::class.java)
-        val member1 = player1.getText().toString()
+        val member1 = player1.text.toString()
         val member2 = player3.getText().toString()
         val member3 = player3.getText().toString()
         val member4 = player4.getText().toString()
