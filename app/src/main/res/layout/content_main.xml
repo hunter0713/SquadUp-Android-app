@@ -30,18 +30,14 @@
         android:id="@+id/loginButton"
         android:layout_width="186dp"
         android:layout_height="66dp"
-        android:layout_marginTop="469dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginTop="15dp"
         android:background="#102DC5"
         android:text="Login"
         android:textColor="#E90A1D"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <EditText
         android:id="@+id/usernameLogin"
@@ -89,18 +85,15 @@
         android:id="@+id/clickToRegister"
         android:layout_width="191dp"
         android:layout_height="52dp"
-        android:layout_marginTop="598dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="63dp"
         android:text="Don't Have an Account Yet? Register Here!"
         android:textAlignment="center"
         android:textColor="#E90A1D"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
