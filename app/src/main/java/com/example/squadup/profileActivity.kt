@@ -29,6 +29,10 @@ class profileActivity : AppCompatActivity() {
             intent.putExtra("username",username)
             startActivity(intent)
         }
-
+        profileStartGame.setOnClickListener{
+            val intent = Intent(this,StartGame::class.java)
+            intent.putExtra("username",username)
+            startActivity(intent)
+        }
     }
 }

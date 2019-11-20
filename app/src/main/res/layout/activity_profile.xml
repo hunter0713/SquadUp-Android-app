@@ -56,6 +56,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/profileStartGame"
+        android:layout_width="141dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginTop="488dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="171dp"
+        android:background="#102DC5"
+        android:text="Start Game"
+        android:textColor="#E90A1D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/goToTeamPage"
         android:layout_width="145dp"
         android:layout_height="73dp"
