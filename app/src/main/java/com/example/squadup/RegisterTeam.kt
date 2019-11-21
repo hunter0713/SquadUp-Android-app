@@ -11,7 +11,6 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_register_page.*
 import kotlinx.android.synthetic.main.activity_register_team.*
 
 class RegisterTeam : AppCompatActivity() {
@@ -29,16 +28,13 @@ class RegisterTeam : AppCompatActivity() {
     fun registerTeam(teamName: String, member1: String){
         val request = object: StringRequest(Request.Method.POST, "https://people.eecs.ku.edu/~h961c228/teamRegisterBackend.php", object : Response.Listener<String> {
             override fun onResponse(response: String) {
-                Toast.makeText(this@RegisterTeam, response, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@RegisterTeam, "Your Team ID: " + response, Toast.LENGTH_LONG).show()
                 if(response == "Failed"){
                     //failure
                 }
-                else{
-                    //display team ID in TextView
-                }
             }
         }, Response.ErrorListener() {
-            fun onErrorResponse(error: VolleyError) { //function required for StringResponse
+            fun onErrorResponse(error: VolleyError) { //function required for StringResponse. Never Used
                 Log.d("error", error.toString())
             }
         }){
