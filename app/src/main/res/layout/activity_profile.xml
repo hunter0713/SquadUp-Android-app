@@ -9,6 +9,64 @@
     tools:context=".profileActivity">
 
     <TextView
+        android:id="@+id/profileWinTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="282dp"
+        android:layout_marginBottom="520dp"
+        android:text="Wins"
+        android:textColor="#BD043E"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/profileWins"
+        android:layout_width="93dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="235dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/profileLosses"
+        android:layout_width="73dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="234dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/profileLossTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="522dp"
+        android:text="Losses"
+        android:textColor="#BD043E"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/profileTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,7 +79,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/profileGoToTeamPage"
@@ -31,9 +90,9 @@
         android:layout_marginTop="586dp"
         android:layout_marginEnd="236dp"
         android:layout_marginBottom="73dp"
-        android:background="#102DC5"
+        android:background="@color/colorPrimaryDark"
         android:text="Create Team"
-        android:textColor="#E90A1D"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,9 +106,9 @@
         android:layout_marginTop="488dp"
         android:layout_marginEnd="236dp"
         android:layout_marginBottom="171dp"
-        android:background="#102DC5"
+        android:background="@color/colorPrimaryDark"
         android:text="Join Team"
-        android:textColor="#E90A1D"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,9 +122,9 @@
         android:layout_marginTop="488dp"
         android:layout_marginEnd="38dp"
         android:layout_marginBottom="171dp"
-        android:background="#102DC5"
+        android:background="@color/colorPrimaryDark"
         android:text="Start Game"
-        android:textColor="#E90A1D"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,4 +145,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

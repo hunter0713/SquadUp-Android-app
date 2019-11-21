@@ -18,9 +18,6 @@ class GamePage : AppCompatActivity() {
         val teamIntent: Intent = getIntent()
         val team1 = teamIntent.getStringExtra("userTeam")
         val team2 = teamIntent.getStringExtra("otherTeam")
-
-
-
     }
 
 }
