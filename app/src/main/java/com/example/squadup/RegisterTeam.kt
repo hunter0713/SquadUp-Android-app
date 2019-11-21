@@ -31,7 +31,10 @@ class RegisterTeam : AppCompatActivity() {
             override fun onResponse(response: String) {
                 Toast.makeText(this@RegisterTeam, response, Toast.LENGTH_LONG).show()
                 if(response == "Failed"){
-                    //display team id to user to give to other users.
+                    //failure
+                }
+                else{
+                    //display team ID in TextView
                 }
             }
         }, Response.ErrorListener() {

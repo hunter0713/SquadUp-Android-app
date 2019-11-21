@@ -14,28 +14,46 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_start_game.*
 import kotlinx.android.synthetic.main.content_main.*
+import android.widget.ArrayAdapter
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.widget.Spinner
+
 
 class StartGame : AppCompatActivity() {
+    var userTeamList =
+        arrayOf<String>("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
+    var otherTeamList =
+        arrayOf<String>("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_game)
-        startGameButton.setOnClickListener{
-            var team1 = findViewById<EditText>(R.id.startGameTeam1Name).text.toString()
-            var team2 = findViewById<EditText>(R.id.startGameTeam2Name).text.toString()
-            checkTeams(team1,team2)
+        val intent = getIntent()
+
+        val username = intent.getStringExtra("username")
+        getUserTeams(username)
+        getAllTeams(username)
+        startGameButton.setOnClickListener {
+            val spin = findViewById<Spinner>(R.id.userTeamSpinner)
+            val userTeam = spin.getSelectedItem().toString()
+            val otherTeam = spin.getSelectedItem().toString()
+            val intent = Intent(this, GamePage::class.java)
+            intent.putExtra("userTeam",userTeam);
+            intent.putExtra("otherTeam",otherTeam)
+            startActivity(intent)
         }
     }
-    fun checkTeams(team1: String, team2: String) {
+
+    fun getUserTeams(username: String) {
         val request = object : StringRequest(
             Request.Method.POST,
-            "https://people.eecs.ku.edu/~h961c228/checkTeams.php",
+            "https://people.eecs.ku.edu/~h961c228/getUserTeams.php",
             object : Response.Listener<String> {
                 override fun onResponse(response: String) {
-                    Toast.makeText(this@StartGame, response, Toast.LENGTH_LONG).show()
-                    if (response == "success") {
-                        goToGamePage(team1,team2)
-                    }
+                    createArray(response);
                 }
             },
             Response.ErrorListener() {
@@ -46,22 +64,76 @@ class StartGame : AppCompatActivity() {
 
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String, String>();
-                params["team1"] = team1     //here
-                params["team2"] = team2  //here
+                params["username"] = username
                 return params
             }
-        };
+        }
 
 
         var requestQueue: RequestQueue = Volley.newRequestQueue(this)
         requestQueue.add(request)
 
     }
-    fun goToGamePage(team1: String, team2: String){
+
+    fun goToGamePage(team1: String, team2: String) {
         val intent = Intent(this, GamePage::class.java)
-        intent.putExtra("team1",team1)
-        intent.putExtra("team2",team2)
+        intent.putExtra("username", team1)
+        intent.putExtra("team2", team2)
         startActivity(intent)
     }
 
+    fun createArray(teams: String) {
+        var count = 0;
+        for (index in teams.indices) {
+            if (teams[index] == '.') {
+                count++
+            } else if (teams[index] != '.') {
+                userTeamList[count] += teams[index].toString()
+            }
+        }
+        val spin = findViewById<Spinner>(R.id.userTeamSpinner)
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, userTeamList)
+        spin.adapter = arrayAdapter
+
+    }
+
+    fun getAllTeams(username: String) {
+        val request = object : StringRequest(
+            Request.Method.POST,
+            "https://people.eecs.ku.edu/~h961c228/getAllOtherTeams.php",
+            object : Response.Listener<String> {
+                override fun onResponse(response: String) {
+                   // Toast.makeText(this@StartGame, response, Toast.LENGTH_LONG).show()
+                    createAllTeamArray(response);
+                }
+            },
+            Response.ErrorListener() {
+                fun onErrorResponse(error: VolleyError) {
+                    Log.d("error", error.toString())
+                }
+            }) {
+
+            override fun getParams(): Map<String, String> {
+                val params = HashMap<String, String>();
+                params["username"] = username
+                return params
+            }
+        }
+        var requestQueue: RequestQueue = Volley.newRequestQueue(this)
+        requestQueue.add(request)
+    }
+    fun createAllTeamArray(teams: String) {
+        var count = 0;
+        for (index in teams.indices) {
+            if (teams[index] == '.') {
+                count++
+            } else if (teams[index] != '.') {
+                otherTeamList[count] += teams[index].toString()
+            }
+        }
+        val spin = findViewById<Spinner>(R.id.otherTeamSpinner)
+        val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, otherTeamList)
+        spin.adapter = arrayAdapter
+
+    }
 }

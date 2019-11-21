@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         loginButton.setOnClickListener {
-            var username = findViewById<EditText>(R.id.usernameLogin)
-            var password = findViewById<EditText>(R.id.password)
+            val username = findViewById<EditText>(R.id.usernameLogin)
+            val password = findViewById<EditText>(R.id.password)
             login(username.text.toString(), password.text.toString())
 
 
@@ -50,18 +50,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
-    fun sayHello(view: View)
-    {
-        val helloToast = Toast.makeText(this, "Hello SquadUp User!", Toast.LENGTH_LONG)
-        helloToast.show()
-    }
-
     fun goToProfile(username: String)
     {
         val intent = Intent(this, profileActivity::class.java)
-        intent.putExtra("username",username);
+        intent.putExtra("username",username)
         startActivity(intent)
     }
     //LOGIN FUNCTION FOR DATABASE STUFF

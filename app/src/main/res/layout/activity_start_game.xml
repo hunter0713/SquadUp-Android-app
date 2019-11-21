@@ -16,7 +16,7 @@
         android:layout_marginEnd="86dp"
         android:layout_marginBottom="124dp"
         android:background="@color/colorPrimaryDark"
-        android:text="Create Team"
+        android:text="Start Game"
         android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
         android:text="@string/squadup_home"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#BD043E"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
         android:text="VS."
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#BD043E"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,36 +62,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/startGameTeam1Name"
-        android:layout_width="409dp"
+    <Spinner
+        android:id="@+id/userTeamSpinner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="226dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="460dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Team #1"
+        android:layout_marginTop="214dp"
+        android:layout_marginBottom="469dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/startGameTeam2Name"
-        android:layout_width="409dp"
+    <Spinner
+        android:id="@+id/otherTeamSpinner"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="431dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="255dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Team #2"
+        android:layout_marginTop="417dp"
+        android:layout_marginBottom="266dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

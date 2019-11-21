@@ -20,11 +20,11 @@ class registerPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_page)
         registerButton.setOnClickListener {
-            var username = findViewById<EditText>(R.id.registerUsername)
-            var password = findViewById<EditText>(R.id.registerPagePass1)
-            var passwordVerify = findViewById<EditText>(R.id.registerPagePass2)
+            val username = findViewById<EditText>(R.id.registerUsername)
+            val password = findViewById<EditText>(R.id.registerPagePass1)
+            val passwordVerify = findViewById<EditText>(R.id.registerPagePass2)
             if (password.text.toString() == passwordVerify.text.toString()) {
-                registerUser(username.text.toString(), password.text.toString());
+                registerUser(username.text.toString(), password.text.toString())
             } else {
                 Toast.makeText(this, "Passwords Don't Match :(", Toast.LENGTH_LONG).show()
             }
@@ -59,7 +59,7 @@ fun goToProfile(){
                 params["password"] = password  //here
                 return params
             }
-        };
+        }
 
 
         var requestQueue: RequestQueue = Volley.newRequestQueue(this)
