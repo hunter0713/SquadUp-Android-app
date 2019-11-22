@@ -24,13 +24,14 @@ class profileActivity : AppCompatActivity() {
         val title = findViewById<TextView>(R.id.profileTitle)
         title.text = "Welcome, " + username + "!"
         getRecord(username)
-        profileGoToTeamPage.setOnClickListener{
+        profileCreateTeam.setOnClickListener{
             val intent = Intent(this, RegisterTeam::class.java)
             intent.putExtra("username",username)
             startActivity(intent)
         }
         goToTeamPage.setOnClickListener{
-            val intent = Intent(this,TeamPage::class.java)
+            val intent = Intent(this,UserTeamsPage::class.java)
+            intent.putExtra("username",username)
             startActivity(intent)
         }
         profileJoinTeamButton.setOnClickListener{
