@@ -38,11 +38,13 @@ class StartGame : AppCompatActivity() {
         getAllTeams(username)
         startGameButton.setOnClickListener {
             val spin = findViewById<Spinner>(R.id.userTeamSpinner)
+            val spin2 = findViewById<Spinner>(R.id.otherTeamSpinner)
             val userTeam = spin.getSelectedItem().toString()
-            val otherTeam = spin.getSelectedItem().toString()
+            val otherTeam = spin2.getSelectedItem().toString()
             val intent = Intent(this, GamePage::class.java)
             intent.putExtra("userTeam",userTeam);
             intent.putExtra("otherTeam",otherTeam)
+            intent.putExtra("username",username)
             startActivity(intent)
         }
     }
