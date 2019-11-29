@@ -1,10 +1,11 @@
 package com.example.squadup
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -12,7 +13,6 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_join_team.*
-import kotlinx.android.synthetic.main.activity_register_team.*
 
 class JoinTeam : AppCompatActivity() {
 
@@ -27,9 +27,11 @@ class JoinTeam : AppCompatActivity() {
         }
     }
     fun joinTeam(teamCode: String, username: String){
+        val returnToProfile = Intent(this, profileActivity::class.java)
         val request = object: StringRequest(Request.Method.POST, "https://people.eecs.ku.edu/~h961c228/joinTeamBackend.php", object : Response.Listener<String> {
             override fun onResponse(response: String) {
                 Toast.makeText(this@JoinTeam, response, Toast.LENGTH_LONG).show()
+                startActivity(returnToProfile)
                 if(response == "Failed"){
                     //display team id to user to give to other users.
                 }
