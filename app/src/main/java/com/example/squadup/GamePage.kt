@@ -3,17 +3,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import kotlinx.android.synthetic.main.activity_game_page.*
-import org.w3c.dom.Text
 
 class GamePage : AppCompatActivity() {
 
@@ -38,11 +35,24 @@ class GamePage : AppCompatActivity() {
         }
 
     }
+
+    /**
+     * @pre None
+     * @param username: A string containing the active username
+     * @post Returns you to the profile page activity
+     */
     fun goToProfile(username: String){
         val intent = Intent(this, profileActivity::class.java)
         intent.putExtra("username", username)
         startActivity(intent)
     }
+    /**
+     * @pre Two existing teams in a game
+     * @param Username: a string of the active username
+     * @param winningTeam: the name of the team who won
+     * @param loserTeam: the name of the team who lost
+     * @post Updates the winners record
+     */
     fun updateWinnerRecords(username: String, winningTeam: String, loserTeam: String) {
         val request = object : StringRequest(
             Request.Method.POST,
@@ -74,6 +84,13 @@ class GamePage : AppCompatActivity() {
         requestQueue.add(request)
 
     }
+    /**
+     * @pre two existing teams in a game
+     * @param Username: a string of the active username
+     * @param winningTeam: the name of the team who won
+     * @param loserTeam: the name of the team who lost
+     * @post updates the losers record
+     */
     fun updateLoserRecords(username: String, winningTeam: String, loserTeam: String) {
         val request = object : StringRequest(
             Request.Method.POST,

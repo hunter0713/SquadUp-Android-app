@@ -1,12 +1,11 @@
 package com.example.squadup
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -33,6 +32,13 @@ class UserTeamsPage : AppCompatActivity() {
             getTeamStats(teamName)
         }
     }
+
+    /**
+     * @pre An active user
+     * @param username: the active username
+     * @post fetches the teams the user is currently on from SQL table
+     */
+
     fun getUserTeams(username: String) {
         val request = object : StringRequest(
             Request.Method.POST,
@@ -60,6 +66,11 @@ class UserTeamsPage : AppCompatActivity() {
         requestQueue.add(request)
 
     }
+    /**
+     * @pre existing teams for the user
+     * @param teams: a string of the team name
+     * @post creates the spinner array with the names of the teams
+     */
     fun createArray(teams: String) {
         var count = 0;
         for (index in teams.indices) {
@@ -74,6 +85,12 @@ class UserTeamsPage : AppCompatActivity() {
         spin.adapter = arrayAdapter
 
     }
+
+    /**
+     * @pre an existing team
+     * @param teamName: a string of the team name
+     * @post Fetches the stats for a team
+     */
     fun getTeamStats(teamName: String){
         val request = object : StringRequest(
             Request.Method.POST,
@@ -102,6 +119,12 @@ class UserTeamsPage : AppCompatActivity() {
         requestQueue.add(request)
 
     }
+
+    /**
+     * @pre none
+     * @param data: string containing data
+     * @post displays data onscreen
+     */
     fun createData(data: String){
         var flag = 0;
         userTeamName = ""

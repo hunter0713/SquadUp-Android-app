@@ -26,6 +26,13 @@ class RegisterTeam : AppCompatActivity() {
             registerTeam(teamName,username)
         }
     }
+
+    /**
+     * @pre At least one member
+     * @param teamName: The name of the team to be created
+     * @param member1: The first member of the team
+     * @post creates a team with the provided member
+     */
     fun registerTeam(teamName: String, member1: String){
         val username = intent.getStringExtra("username")
         val returnToProfile = Intent(this, profileActivity::class.java)
@@ -43,7 +50,10 @@ class RegisterTeam : AppCompatActivity() {
                 Log.d("error", error.toString())
             }
         }){
-
+            /**
+             * @pre a member and a team name
+             * @post adds member and teamName to hash map
+             */
             override fun getParams(): Map<String, String> {
                 val params = HashMap<String,String>()
                 params["member1"]= member1

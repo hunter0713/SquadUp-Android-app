@@ -26,6 +26,13 @@ class JoinTeam : AppCompatActivity() {
             joinTeam(teamCode,username)
         }
     }
+
+    /**
+     * @pre A team code
+     * @param teamCode: a string of the team code you wish  to join
+     * @param username: the active username
+     * @post joins the team you entered
+     */
     fun joinTeam(teamCode: String, username: String){
         val returnToProfile = Intent(this, profileActivity::class.java)
         val request = object: StringRequest(Request.Method.POST, "https://people.eecs.ku.edu/~h961c228/joinTeamBackend.php", object : Response.Listener<String> {
