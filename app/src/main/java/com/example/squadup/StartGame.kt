@@ -1,11 +1,11 @@
 package com.example.squadup
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -13,13 +13,6 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_start_game.*
-import kotlinx.android.synthetic.main.content_main.*
-import android.widget.ArrayAdapter
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import android.widget.Spinner
 
 
 class StartGame : AppCompatActivity() {
@@ -49,6 +42,11 @@ class StartGame : AppCompatActivity() {
         }
     }
 
+    /**
+     * @pre An active user
+     * @param username: the active username
+     * @post fetches the teams the user is currently on from SQL table
+     */
     fun getUserTeams(username: String) {
         val request = object : StringRequest(
             Request.Method.POST,
@@ -77,6 +75,7 @@ class StartGame : AppCompatActivity() {
 
     }
 
+
     fun goToGamePage(team1: String, team2: String) {
         val intent = Intent(this, GamePage::class.java)
         intent.putExtra("username", team1)
@@ -84,8 +83,14 @@ class StartGame : AppCompatActivity() {
         startActivity(intent)
     }
 
+
+    /**
+     * @pre existing teams for the user
+     * @param teams: a string of the team name
+     * @post creates the spinner array with the names of the teams
+     */
     fun createArray(teams: String) {
-        var count = 0;
+        var count = 0
         for (index in teams.indices) {
             if (teams[index] == '.') {
                 count++
@@ -98,6 +103,12 @@ class StartGame : AppCompatActivity() {
         spin.adapter = arrayAdapter
 
     }
+
+    /**
+     * @pre an active user
+     * @param username: the active username
+     * @post fetches all teams the user is on
+     */
 
     fun getAllTeams(username: String) {
         val request = object : StringRequest(
@@ -124,6 +135,12 @@ class StartGame : AppCompatActivity() {
         var requestQueue: RequestQueue = Volley.newRequestQueue(this)
         requestQueue.add(request)
     }
+
+    /**
+     * @pre existing teams
+     * @param teams: a string of team names
+     * @post fills the other teams spinner array
+     */
     fun createAllTeamArray(teams: String) {
         var count = 0;
         for (index in teams.indices) {

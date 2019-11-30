@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -45,6 +44,12 @@ class profileActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+    /**
+     * @pre An active user on a team
+     * @param username: the active username
+     * @post Fetches the current user's record from SQL database
+     */
     fun getRecord(username: String){
         val request = object: StringRequest(Request.Method.POST, "https://people.eecs.ku.edu/~h961c228/profileGetUserRecord.php", object : Response.Listener<String> {
             override fun onResponse(response: String) {
@@ -69,6 +74,12 @@ class profileActivity : AppCompatActivity() {
         val requestQueue: RequestQueue = Volley.newRequestQueue(this)
         requestQueue.add(request)
     }
+
+    /**
+     * @pre existing textViews
+     * @param record: A string of the fetched record
+     * @post displays the user's win-loss record onscreen
+     */
     fun postRecord(record: String){
         val winsRec = findViewById<TextView>(R.id.profileWins)
         val lossRec = findViewById<TextView>(R.id.profileLosses)

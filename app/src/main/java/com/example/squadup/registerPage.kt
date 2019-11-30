@@ -30,11 +30,24 @@ class registerPage : AppCompatActivity() {
             }
         }
     }
+
+    /**
+     * @pre None
+     * @param username: A string containing the active username
+     * @post Returns you to the profile page activity
+     */
 fun goToProfile(){
     val intent = Intent(this, profileActivity::class.java)
     intent.putExtra("username",findViewById<EditText>(R.id.registerUsername).text.toString())
     startActivity(intent)
 }
+
+    /**
+     * @pre none
+     * @param  username: A string containing the desired username
+     * @param password:  A string containing the desired password
+     * @post Registers the user in the SQL database
+     */
     fun registerUser(username: String, password: String) {
         val request = object : StringRequest(
             Request.Method.POST,
