@@ -1,0 +1,7 @@
+﻿Project 4 Bug List
+
+
+* User can be created with username left blank
+* Starting a game doesn't require both teams to agree. Players could make fake games and make their team win.
+* Some back buttons cause app to get confused like after logging in / registering and getting to profile page.
+* Hitting back button after starting game can cause issues with sql information.
