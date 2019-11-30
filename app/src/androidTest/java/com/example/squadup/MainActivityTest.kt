@@ -423,33 +423,7 @@ class TestSuite {
 
     @Test
     fun CreateTeamLoadsCorrectly() {
-        val appCompatEditText = onView(
-            allOf(
-                withId(R.id.usernameLogin),
-
-                isDisplayed()
-            )
-        )
-        appCompatEditText.perform(replaceText("bwheat"), closeSoftKeyboard())
-
-        val appCompatEditText2 = onView(
-            allOf(
-                withId(R.id.password),
-
-                isDisplayed()
-            )
-        )
-        appCompatEditText2.perform(replaceText("password"), closeSoftKeyboard())
-
-        val appCompatButton = onView(
-            allOf(
-                withId(R.id.loginButton), withText("Login"),
-
-                isDisplayed()
-            )
-        )
-        appCompatButton.perform(click())
-
+        login()
         val appCompatButton2 = onView(
             allOf(
                 withId(R.id.profileCreateTeam), withText("Create Team"),
