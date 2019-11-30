@@ -97,7 +97,7 @@ class GamePage : AppCompatActivity() {
             "https://people.eecs.ku.edu/~h961c228/updateLosersAfterGame.php",
             object : Response.Listener<String> {
                 override fun onResponse(response: String) {
-                    Toast.makeText(this@GamePage, response, Toast.LENGTH_LONG).show()
+                   // Toast.makeText(this@GamePage, response, Toast.LENGTH_LONG).show()
                     goToProfile(username)
 
                 }
