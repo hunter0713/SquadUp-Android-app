@@ -21,7 +21,7 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class MainActivityTest {
+class TestSuite {
 
     @Rule
     @JvmField
@@ -181,7 +181,7 @@ class MainActivityTest {
                 isDisplayed()
             )
         )
-        appCompatEditText.perform(replaceText(""), closeSoftKeyboard())
+        appCompatEditText.perform(replaceText("testthis"), closeSoftKeyboard())
 
         val appCompatEditText2 = onView(
             allOf(
@@ -190,7 +190,7 @@ class MainActivityTest {
                 isDisplayed()
             )
         )
-        appCompatEditText2.perform(replaceText(""), closeSoftKeyboard())
+        appCompatEditText2.perform(replaceText("password"), closeSoftKeyboard())
 
         val appCompatButton = onView(
             allOf(
@@ -220,7 +220,7 @@ class MainActivityTest {
                 isDisplayed()
             )
         )
-        appCompatEditText.perform(replaceText(""), closeSoftKeyboard())
+        appCompatEditText.perform(replaceText("testthis"), closeSoftKeyboard())
 
         val appCompatEditText2 = onView(
             allOf(
@@ -229,7 +229,7 @@ class MainActivityTest {
                 isDisplayed()
             )
         )
-        appCompatEditText2.perform(replaceText(""), closeSoftKeyboard())
+        appCompatEditText2.perform(replaceText("password"), closeSoftKeyboard())
 
         val appCompatButton = onView(
             allOf(
@@ -248,6 +248,248 @@ class MainActivityTest {
             )
         )
         textView3.check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun ErrorIfUSernameAlreadyExists() {
+        val appCompatTextView = onView(
+            allOf(
+                withId(R.id.clickToRegister), withText("Don't Have an Account Yet? Register Here!"),
+                isDisplayed()
+            )
+        )
+        appCompatTextView.perform(click())
+
+        val appCompatEditText = onView(
+            allOf(
+                withId(R.id.registerUsername),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText.perform(replaceText("bwheat"), closeSoftKeyboard())
+
+        val appCompatEditText2 = onView(
+            allOf(
+                withId(R.id.registerPagePass1),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText2.perform(replaceText("test"), closeSoftKeyboard())
+
+        val appCompatEditText3 = onView(
+            allOf(
+                withId(R.id.registerPagePass2),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText3.perform(replaceText("test"), closeSoftKeyboard())
+
+        val appCompatButton = onView(
+            allOf(
+                withId(R.id.registerButton), withText("Register"),
+
+                isDisplayed()
+            )
+        )
+        appCompatButton.perform(click())
+
+        val button = onView(
+            allOf(
+                withId(R.id.registerButton),
+
+                isDisplayed()
+            )
+        )
+        Thread.sleep(2000)
+        button.check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun UnmatchingPasswordsReportsError() {
+        val appCompatTextView = onView(
+            allOf(
+                withId(R.id.clickToRegister), withText("Don't Have an Account Yet? Register Here!"),
+                isDisplayed()
+            )
+        )
+        appCompatTextView.perform(click())
+
+        val appCompatEditText = onView(
+            allOf(
+                withId(R.id.registerUsername),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText.perform(replaceText("testthis1"), closeSoftKeyboard())
+
+        val appCompatEditText2 = onView(
+            allOf(
+                withId(R.id.registerPagePass1),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText2.perform(replaceText("test"), closeSoftKeyboard())
+
+        val appCompatEditText3 = onView(
+            allOf(
+                withId(R.id.registerPagePass2),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText3.perform(replaceText("tests"), closeSoftKeyboard())
+
+        val appCompatButton = onView(
+            allOf(
+                withId(R.id.registerButton), withText("Register"),
+
+                isDisplayed()
+            )
+        )
+        appCompatButton.perform(click())
+
+        val button = onView(
+            allOf(
+                withId(R.id.registerButton),
+
+                isDisplayed()
+            )
+        )
+        Thread.sleep(2000)
+        button.check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun EmptyUsernameFieldStopsLogin() {
+        val appCompatEditText = onView(
+            allOf(
+                withId(R.id.usernameLogin),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText.perform(replaceText("testthis"), closeSoftKeyboard())
+        val appCompatButton = onView(
+            allOf(
+                withId(R.id.loginButton), withText("Login"),
+
+                isDisplayed()
+            )
+        )
+        appCompatButton.perform(click())
+
+        val textView = onView(
+            allOf(
+                withId(R.id.loginTitle), withText("SquadUp"),
+
+                isDisplayed()
+            )
+        )
+        textView.check(matches(withText("SquadUp")))
+    }
+
+    fun EmptyPasswordFieldStopsLogin() {
+        val appCompatEditText = onView(
+            allOf(
+                withId(R.id.password),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText.perform(replaceText("testthis"), closeSoftKeyboard())
+        val appCompatButton = onView(
+            allOf(
+                withId(R.id.loginButton), withText("Login"),
+
+                isDisplayed()
+            )
+        )
+        appCompatButton.perform(click())
+
+        val textView = onView(
+            allOf(
+                withId(R.id.loginTitle), withText("SquadUp"),
+
+                isDisplayed()
+            )
+        )
+        textView.check(matches(withText("SquadUp")))
+    }
+
+    @Test
+    fun CreateTeamLoadsCorrectly() {
+        val appCompatEditText = onView(
+            allOf(
+                withId(R.id.usernameLogin),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText.perform(replaceText("bwheat"), closeSoftKeyboard())
+
+        val appCompatEditText2 = onView(
+            allOf(
+                withId(R.id.password),
+
+                isDisplayed()
+            )
+        )
+        appCompatEditText2.perform(replaceText("password"), closeSoftKeyboard())
+
+        val appCompatButton = onView(
+            allOf(
+                withId(R.id.loginButton), withText("Login"),
+
+                isDisplayed()
+            )
+        )
+        appCompatButton.perform(click())
+
+        val appCompatButton2 = onView(
+            allOf(
+                withId(R.id.profileCreateTeam), withText("Create Team"),
+
+                isDisplayed()
+            )
+        )
+        appCompatButton2.perform(click())
+
+        val textView = onView(
+            allOf(
+                withId(R.id.registerTeamTitle), withText("Create Team"),
+
+                isDisplayed()
+            )
+        )
+        textView.check(matches(withText("Create Team")))
+    }
+
+    @Test
+    fun YourTeamsLoadsCorrectly() {
+        login()
+        val appCompatButton2 = onView(
+            allOf(
+                withId(R.id.goToTeamPage),
+
+                isDisplayed()
+            )
+        )
+        appCompatButton2.perform(click())
+        Thread.sleep(2000)
+
+        val spinner = onView(
+            allOf(
+                withId(R.id.userTeamPageTitle),
+                isDisplayed()
+            )
+        )
+        spinner.check(matches(isDisplayed()))
+
     }
 
 }
