@@ -11,25 +11,20 @@ if($connect->connect_error)
     die("Connection failed: " . $connect->connect_error);
   }
 
-
-$user = $_GET["username"];
-$pass = $_GET["password"];
-$_SESSION['username'] = $user;
-$_SESSION['password'] = $pass;
+$user = filter_input(INPUT_POST, "username");
+$pass = filter_input(INPUT_POST, "password");
 $userInfo = mysqli_query($connect,"SELECT * FROM usernames WHERE username = '$user'");
-$sql = "INSERT INTO usernames (username, password) VALUES ('$user', '$pass')";
-if(!(mysqli_num_rows($userInfo) > 0)){
-
-
-if($connect->query($sql) === true)
-  {
-    echo "success";
+$row = mysqli_fetch_array($userInfo);
+if($user == $row['username']){
+  if($pass == $row['password']){
+      echo "Success";
   }
+else{
+echo "failure";
 }
-else {
-  echo "Could not insert ";
 }
-
+else if($user != $row['username'] || $pass != $row['password']) {
+  echo "failure";
+}
 $connect->close();
-
- ?>
+?>

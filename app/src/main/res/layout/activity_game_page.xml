@@ -4,19 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".GamePage">
 
+    <Button
+        android:id="@+id/otherTeamWinsButton"
+        android:layout_width="410dp"
+        android:layout_height="306dp"
+        android:layout_marginTop="424dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/colorPrimaryDark"
+        android:text=""
+        android:textColor="@color/colorPrimary"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/userTeamWinsButton"
+        android:layout_width="410dp"
+        android:layout_height="306dp"
+        android:layout_marginTop="106dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="319dp"
+        android:background="@color/colorPrimaryDark"
+        android:text=""
+        android:textSize="40dp"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="157dp"
-        android:layout_height="46dp"
-        android:text="Final Score"
-        android:textColor="#D11919"
+        android:id="@+id/gamePageTitle"
+        android:layout_width="198dp"
+        android:layout_height="47dp"
+        android:text="Select Winner"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.062" />
+        app:layout_constraintVertical_bias="0.023" />
 </androidx.constraintlayout.widget.ConstraintLayout>

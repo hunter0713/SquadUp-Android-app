@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -27,8 +26,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         loginButton.setOnClickListener {
-            var username = findViewById<EditText>(R.id.editText2)
-            var password = findViewById<EditText>(R.id.editText3)
+            val username = findViewById<EditText>(R.id.usernameLogin)
+            val password = findViewById<EditText>(R.id.password)
             login(username.text.toString(), password.text.toString())
 
 
@@ -50,21 +49,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
-    fun sayHello(view: View)
-    {
-        val helloToast = Toast.makeText(this, "Hello SquadUp User!", Toast.LENGTH_LONG)
-        helloToast.show()
-    }
-
+    /**
+     * @pre None
+     * @param username: A string containing the active username
+     * @post Returns you to the profile page activity
+     */
     fun goToProfile(username: String)
     {
         val intent = Intent(this, profileActivity::class.java)
-        intent.putExtra("username",username);
+        intent.putExtra("username",username)
         startActivity(intent)
     }
     //LOGIN FUNCTION FOR DATABASE STUFF
+    /**
+     * @pre None
+     * @param username: the entered username
+     * @param password: the entered password
+     * @post Checks if the user exists in the SQL database and redirects them if so
+     */
     fun login(username: String, password: String){
         val request = object: StringRequest(Request.Method.POST, "https://people.eecs.ku.edu/~h961c228/loginExistingBackend.php", object : Response.Listener<String> {
             override fun onResponse(response: String) {

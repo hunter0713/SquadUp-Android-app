@@ -12,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".profileActivity"></activity>
+        <activity android:name=".UserTeamsPage"></activity>
+        <activity android:name=".StartGame" />
+        <activity android:name=".JoinTeam" />
+        <activity android:name=".RegisterTeam" />
+        <activity android:name=".profileActivity" />
         <activity android:name=".registerPage" />
         <activity android:name=".GamePage" />
         <activity android:name=".TeamPage" />

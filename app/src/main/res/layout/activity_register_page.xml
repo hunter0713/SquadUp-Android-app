@@ -15,7 +15,7 @@
         android:text="@string/squadup_home"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="#BD043E"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
 
     <EditText
         android:id="@+id/registerUsername"
@@ -89,8 +89,8 @@
         android:layout_height="77dp"
         android:layout_marginTop="543dp"
         android:text="Register"
-        android:background="#102DC5"
-        android:textColor="#E90A1D"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -20,21 +20,34 @@ class registerPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_page)
         registerButton.setOnClickListener {
-            var username = findViewById<EditText>(R.id.registerUsername)
-            var password = findViewById<EditText>(R.id.registerPagePass1)
-            var passwordVerify = findViewById<EditText>(R.id.registerPagePass2)
+            val username = findViewById<EditText>(R.id.registerUsername)
+            val password = findViewById<EditText>(R.id.registerPagePass1)
+            val passwordVerify = findViewById<EditText>(R.id.registerPagePass2)
             if (password.text.toString() == passwordVerify.text.toString()) {
-                registerUser(username.text.toString(), password.text.toString());
+                registerUser(username.text.toString(), password.text.toString())
             } else {
                 Toast.makeText(this, "Passwords Don't Match :(", Toast.LENGTH_LONG).show()
             }
         }
     }
+
+    /**
+     * @pre None
+     * @param username: A string containing the active username
+     * @post Returns you to the profile page activity
+     */
 fun goToProfile(){
     val intent = Intent(this, profileActivity::class.java)
     intent.putExtra("username",findViewById<EditText>(R.id.registerUsername).text.toString())
     startActivity(intent)
 }
+
+    /**
+     * @pre none
+     * @param  username: A string containing the desired username
+     * @param password:  A string containing the desired password
+     * @post Registers the user in the SQL database
+     */
     fun registerUser(username: String, password: String) {
         val request = object : StringRequest(
             Request.Method.POST,
@@ -59,7 +72,7 @@ fun goToProfile(){
                 params["password"] = password  //here
                 return params
             }
-        };
+        }
 
 
         var requestQueue: RequestQueue = Volley.newRequestQueue(this)

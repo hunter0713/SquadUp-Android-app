@@ -6,13 +6,16 @@
     <string name="button3">Options</string>
     <string name="button2">Go to team page</string>
     <string name="sign_in">Sign In:</string>
+
     <string name="Name">Name</string>
     <string name="AddPlayers">Add Players</string>
     <string name="SelectCourt">Select a Court</string>
     <string name="TeamName">Team name</string>
+
     <string name="Radio1">Court 1</string>
     <string name="Radio2">Court 2</string>
     <string name="CreateTeam">Create a Team here</string>
+    <string name="teamButton"> Start Game</string>
     <string name="Court1">Court 1</string>
     <string name="Court2">Court 2</string>
     <string name="Court3">Court 3</string>
